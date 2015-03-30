@@ -1,0 +1,12 @@
+name: bower
+version: 0.1.0
+
+author:
+  name: Chris Tate
+  email: chris@studiotate.com
+  url: http://studiotate.com
+copyright: 2015 Studio Tate
+
+generators:
+  project:
+    version: latest
