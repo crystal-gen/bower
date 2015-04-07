@@ -1,11 +1,56 @@
 name: bower
 version: 0.1.0
+description: "[Bower](http://bower.io) generator for [Crystal](http://crystal.sh)"
 
 author:
   name: Chris Tate
   email: chris@studiotate.com
   url: http://studiotate.com
 copyright: 2015 Studio Tate
+
+gen:
+  file:
+    bowerrc:
+      dest: .bowerrc
+      type: json
+  spec:
+    analytics:
+      type: string
+    ca:
+      type: string
+    color:
+      type: string
+    cwd:
+      type: string
+    directory:
+      type: string
+    https-proxy:
+      type: string
+    interactive:
+      type: string
+    registry_publish:
+      type: string
+    registry_search:
+      key: search
+      type: array
+    registry_register:
+      type: string
+    proxy:
+      type: string
+    storage_cache:
+      type: string
+    storage_registry:
+      type: string
+    shorthand-resolver:
+      type: string
+    strict-ssl:
+      type: string
+    timeout:
+      type: number
+    tmp:
+      type: string
+    user-agent:
+      type: string
 
 generators:
   project:
