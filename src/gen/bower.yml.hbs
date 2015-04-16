@@ -1,0 +1,74 @@
+name: "{{#if name}}{{{name}}}{{else}}{{{@name}}}{{/if}}",
+version: "{{#if version}}{{{version}}}{{else}}{{{@version}}}{{/if}}"
+
+{{#if @author}}
+authors:
+  - '{{@author.name}}{{#if @author.email}} <{{@author.email}}>{{/if}}'
+{{/if}}
+
+{{#if dependencies}}
+dependencies:
+  {{#dependencies}}
+  "{{{dependency}}}": "{{{version}}}"
+  {{/dependencies}}
+}
+{{/if}}
+
+{{#if devDependencies}}
+,"devDependencies": {
+  {{#devDependencies}}
+  "{{{dependency}}}": "{{{version}}}"
+  {{/devDependencies}}
+}
+{{/if}}
+
+{{#if @description}}
+,"description": "{{{@description}}}"
+{{/if}}
+
+{{#if homepage}}
+,"homepage": "{{{homepage}}}"
+{{/if}}
+
+{{#if ignore}}
+,"ignore": "{{{ignore}}}"
+{{/if}}
+
+{{#if keywords}}
+,"keywords": [
+  {{#keywords}}
+  "{{{keyword}}}"{{#unless @last}},{{/unless}}
+  {{/keywords}}
+]
+{{/if}}
+
+{{#if license}}
+,"license": "{{{license}}}"
+{{/if}}
+
+{{#if main}}
+,"main": "{{{main}}}"
+{{/if}}
+
+{{#if moduleType}}
+,"moduleType": "{{{moduleType}}}"
+{{/if}}
+
+{{#if private}}
+,"private": true
+{{/if}}
+
+{{#if @repository}}
+,"repository": {
+  "type": "{{{@repository.type}}}",
+  "url": "{{{@repository.url}}}"
+}
+{{/if}}
+
+{{#if resolutions}}
+,"resolutions": {
+  {{#resolutions}}
+  "{{{resolution}}}": "{{{version}}}"
+  {{/resolutions}}
+}
+{{/if}}

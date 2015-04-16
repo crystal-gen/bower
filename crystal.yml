@@ -8,12 +8,27 @@ author:
   url: http://studiotate.com
 copyright: 2015 Studio Tate
 
+doc:
+  usage:
+    title: Usage
+    pages:
+      schema:
+        title: Schema
+      example:
+        title: Example
+      output:
+        title: Output
+
 gen:
   file:
+    bower:
+      dest: bower.json
+      decoder: yaml
+      encoder: json
     bowerrc:
       dest: .bowerrc
       type: json
-  spec:
+  schema:
     analytics:
       type: string
     ca:
@@ -22,11 +37,17 @@ gen:
       type: string
     cwd:
       type: string
+    dependencies:
+      key: dependency
+      type: object
+      value: version
     directory:
       type: string
     https-proxy:
       type: string
     interactive:
+      type: string
+    name:
       type: string
     registry_publish:
       type: string
@@ -53,5 +74,12 @@ gen:
       type: string
 
 generators:
+  gitignore:
+    pass: true
+    path: .
+    spec:
+      items:
+        - bower_components/
+    version: latest
   project:
     version: latest
