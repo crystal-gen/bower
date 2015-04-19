@@ -1,5 +1,5 @@
-name: "{{#if name}}{{{name}}}{{else}}{{{@name}}}{{/if}}",
-version: "{{#if version}}{{{version}}}{{else}}{{{@version}}}{{/if}}"
+name: {{#if name}} {{{name}}} {{else}} {{{@name}}} {{/if}}
+version: {{#if version}} {{{version}}} {{else}} {{{@version}}} {{/if}}
 
 {{#if @author}}
 authors:
@@ -8,67 +8,66 @@ authors:
 
 {{#if dependencies}}
 dependencies:
-  {{#dependencies}}
-  "{{{dependency}}}": "{{{version}}}"
-  {{/dependencies}}
-}
+  {{#each dependencies}}
+  - {{{@key}}}: '{{{this}}}'
+  {{/each}}
 {{/if}}
 
 {{#if devDependencies}}
-,"devDependencies": {
-  {{#devDependencies}}
-  "{{{dependency}}}": "{{{version}}}"
-  {{/devDependencies}}
-}
+devDependencies:
+  {{#each devDependencies}}
+  - {{{@key}}}: '{{{this}}}'
+  {{/each}}
 {{/if}}
 
 {{#if @description}}
-,"description": "{{{@description}}}"
+description: '{{{@description}}}'
 {{/if}}
 
 {{#if homepage}}
-,"homepage": "{{{homepage}}}"
+homepage: '{{{homepage}}}'
 {{/if}}
 
 {{#if ignore}}
-,"ignore": "{{{ignore}}}"
+ignore: {{{ignore}}}
 {{/if}}
 
 {{#if keywords}}
-,"keywords": [
-  {{#keywords}}
-  "{{{keyword}}}"{{#unless @last}},{{/unless}}
-  {{/keywords}}
-]
+keywords:
+  {{#each keywords}}
+  - {{{this}}}
+  {{/each}}
 {{/if}}
 
 {{#if license}}
-,"license": "{{{license}}}"
+license: {{{license}}}
 {{/if}}
 
 {{#if main}}
-,"main": "{{{main}}}"
+main: '{{{main}}}'
 {{/if}}
 
 {{#if moduleType}}
-,"moduleType": "{{{moduleType}}}"
+moduleType: {{{moduleType}}}
 {{/if}}
 
 {{#if private}}
-,"private": true
+private: {{{private}}}
 {{/if}}
 
 {{#if @repository}}
-,"repository": {
-  "type": "{{{@repository.type}}}",
-  "url": "{{{@repository.url}}}"
-}
+repository:
+  {{#if @repository.type}}
+  type: '{{{@repository.type}}}'
+  {{/if}}
+  {{#if @repository.url}}
+  url: '{{{@repository.url}}}'
+  {{/if}}
 {{/if}}
 
 {{#if resolutions}}
-,"resolutions": {
-  {{#resolutions}}
-  "{{{resolution}}}": "{{{version}}}"
-  {{/resolutions}}
-}
+resolutions:
+  {{#each resolutions}}
+  - {{{@key}}}: '{{{this}}}'
+  {{/each}}
 {{/if}}
