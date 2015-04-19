@@ -1,0 +1,9 @@
+{
+	"private": true,
+	"name": "bower-test",
+	"repository": {
+		"type": "git",
+		"url": "http://test.com"
+	},
+	"version": "0.1.0"
+}

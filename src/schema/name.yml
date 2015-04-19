@@ -1,0 +1,8 @@
+allOf:
+  - pattern: '^[A-Za-z0-9._-]*$'
+  - pattern: '^[^._-].*[^._-]$'
+minLength: 1
+maxLength: 50
+not:
+    pattern: '[._-]{2,}'
+type: string
